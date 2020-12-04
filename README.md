@@ -1,10 +1,8 @@
+Here is a slide for this project. [Here][https://heyuntian.github.io/file/CSE_5525_Final_presentation.pdf]
+
 # Requirements
 
-scikit-learn
-scipy
-numpy
-pandas
-tqdm
+See `requirements.txt`.
 
 
 # Dataset
@@ -15,7 +13,7 @@ The movies dataset from Kaggle: [https://www.kaggle.com/rounakbanik/the-movies-d
 
 These files contain metadata for all 45,000 movies listed in the Full MovieLens Dataset. The dataset consists of movies released on or before July 2017. Data points include cast, crew, plot keywords, budget, revenue, posters, release dates, languages, production companies, countries, TMDB vote counts and vote averages.
 
-This dataset also has files containing 26 million ratings from 270,000 users for all 45,000 movies. Ratings are on a scale of 1-5 and have been obtained from the official GroupLens website.
+This dataset also has files containing 26 million ratings from 270,000 users for all 45,000 movies. Ratings are on a scale of 0.5-5 and have been obtained from the official GroupLens website.
 
 ## Content
 
@@ -46,37 +44,3 @@ Running `preprocessing.py` will build the following files in the `./processed_da
   - `overviews.csv`: each line has <mId, overview>.
   - `rating_test.csv`: each line has <uId, mId, binary, rating> representing a user, a movie, if the user's rating on that movie > 3.5 (50%), and its exact rating (0.5 - 5.0). 
   - `rating_train.csv`: similar to the test data.
-
-
-
-
-
-
-
-
-# Brainstorm
-
-# Reference:
-  - 8 Inspirational Applications of Deep Learning[https://machinelearningmastery.com/inspirational-applications-deep-learning/]
-  - Awesome Recommender Systems, https://github.com/gaolinjie/awesome-recommender-systems
-  - Recommender Systems Paperlist, https://github.com/mengfeizhang820/Paperlist-for-Recommender-Systems
-  - Sequence-Aware Recommender Systems[https://recsys.acm.org/recsys18/tutorials/#content-tab-1-4-tab]
-    - paper: Sequence-Aware Recommender Systems
-    - Code: https://github.com/mquad/sars_tutorial
-  - Case Recommender - A Python Framework for RecSys, https://github.com/caserec/CaseRecommender
-  - DKN: Deep Knowledge-Aware Network for News Recommendation, https://github.com/hwwang55/DKN
-
-
-# Idea01: Product-Catalog-Size-Recommendation-Framework
- - Dataset: https://www.kaggle.com/rmisra/clothing-fit-dataset-for-size-recommendation
- - Code: https://github.com/rishabhmisra/Product-Catalog-Size-Recommendation-Framework
- 
- 
-# Idea02: Movie Recommendation Systems
-  - Code: https://github.com/khanhnamle1994/movielens
-  
-# Idea03: Fashion Recommendation System
-  - Code: https://github.com/kang205/DVBPR
-  
-# Idea04: Book Recommendation System
-  - Code: https://github.com/dorukkilitcioglu/books2rec
