@@ -125,3 +125,15 @@ def readEmbeddings(datadir, filename, user_n, user_base, movie_n, movie_base):
     print("readEmbeddings: finished")
     return user_emb, movie_emb
 
+def readTextEmbeddings(datadir, filename, movie_n, movie_base, embed_dim=128):
+    text_emb = np.empty(shape=(movie_n, embed_dim))
+    f = open("/".join([datadir, filename]), "r")
+    for line in f:
+        eles = line.strip().split()
+        if not eles[0].isnumeric():
+            continue
+        node_id = int(eles[0])
+        text_emb[node_id - movie_base] = [float(eles[i + 1]) for i in range(embed_dim)]
+
+    print("readTextEmbeddings: finished, text_emb.shape %s [%s]"%(text_emb.shape, text_emb.shape))
+    return text_emb

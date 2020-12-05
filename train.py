@@ -5,7 +5,7 @@ import tensorflow as tf
 import tensorflow.keras as kr
 import time
 
-from utils import readEmbeddings, readInfo
+from utils import readEmbeddings, readTextEmbeddings, readInfo
 
 def args_parser():
 	parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter,
@@ -14,7 +14,7 @@ def args_parser():
 						help='directory of preprocessed data')
 	parser.add_argument('--graphemb', required=False, default='embeddings.txt.txt',
 						help='filename of graph embeddings')
-	parser.add_argument('--textemb', required=False, default='text_embeddings.txt',
+	parser.add_argument('--textemb', required=False, default='doc2vec_embedding.txt',
 						help='filename of graph embeddings')
 	parser.add_argument('--setting', required=False, type=int, default=0,
 						help='input for classifier. 0 for graph embeddings only, 1 for text embedding only, 2 for both.')
@@ -154,11 +154,9 @@ if __name__ == "__main__":
 	# read embeddings
 	user_emb, movie_emb = readEmbeddings(args.dir, args.graphemb, num_users, user_base, num_movies, movie_base)
 	if args.setting == 1:
-		# TODO: read text embedding
-		movie_emb = np.empty(shape=(num_movies, 128))
+		movie_emb = readTextEmbeddings(args.dir, args.textemb, num_movies, movie_base)
 	elif args.setting == 2:
-		# TODO: read text embedding then concatenate
-		text_emb = np.empty(shape=(num_movies, 128))
+		text_emb = readTextEmbeddings(args.dir, args.textemb, num_movies, movie_base)
 		movie_emb = np.concatenate([movie_emb, text_emb], axis=1)
 
 	# build X_train, y_train
